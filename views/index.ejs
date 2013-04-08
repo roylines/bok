@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 	<head>
 		<title>Bok</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+		<script src="https://raw.github.com/tigbro/jquery-mobile-angular-adapter/master/compiled/jquery-mobile-angular-adapter.min.js"></script>
+		<script src="js/controllers-mobile.js"></script>
 	</head>
 	<body>
 		<div data-role="page">
@@ -13,30 +16,9 @@
 				<h1>Bok: Select Class</h1>
 			</div>
 			<div data-role="content">
-				<ul data-role="listview" data-filter="true" data-filter-placeholder="Filter classes...">
-				<li><a href="index.html">Acura</a></li>
-				<li><a href="index.html">Audi</a></li>
-				<li><a href="index.html">BMW</a></li>
-				<li><a href="index.html">Cadillac</a></li>
-				<li><a href="index.html">Chrysler</a></li>
-				<li><a href="index.html">Dodge</a></li>
-				<li><a href="index.html">Ferrari</a></li>
-				<li><a href="index.html">Ford</a></li>
-				<li><a href="index.html">GMC</a></li>
-				<li><a href="index.html">Honda</a></li>
-				<li><a href="index.html">Hyundai</a></li>
-				<li><a href="index.html">Infiniti</a></li>
-				<li><a href="index.html">Jeep</a></li>
-				<li><a href="index.html">Kia</a></li>
-				<li><a href="index.html">Lexus</a></li>
-				<li><a href="index.html">Mini</a></li>
-				<li><a href="index.html">Nissan</a></li>
-				<li><a href="index.html">Porsche</a></li>
-				<li><a href="index.html">Subaru</a></li>
-				<li><a href="index.html">Toyota</a></li>
-				<li><a href="index.html">Volkswagon</a></li>
-				<li><a href="index.html">Volvo</a></li>
-			</ul>
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Filter classes..." ng-controller="ClassController">
+					<li ng-repeat="class in classes"><a href="index.html">{{class.name}}</a></li>
+				</ul>
 				<!-- <a href="lists-ul.html" data-role="button" data-icon="arrow-r" data-iconpos="right">Basic list example</a> -->
 			</div>
 		</div>
