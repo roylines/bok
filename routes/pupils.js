@@ -7,7 +7,7 @@ pupils.all = function(req, res) {
 	var all = [];
 	var n = 30;
 	while(n > 0) {
-		all.push(names());
+		all.push({ name: names() });
 		--n;
 	}
 
