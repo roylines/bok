@@ -2,9 +2,11 @@
   "name": "bok",
   "version": "0.0.1",
   "dependencies": {
+    "async": "0.2.6",
     "express": "3.1.1",
     "express-device": "0.3.6",
-    "ejs": "0.8.3"
+    "ejs": "0.8.3",
+    "randword": "0.0.3"
   },
   "engines": {
     "node": "0.10.x",
