@@ -1,4 +1,4 @@
-var classes = require('./routes/classes'),
+var pupils = require('./routes/pupils'),
 	device = require('express-device'),
 	express = require('express'),
 	routes = require('./routes'),
@@ -25,7 +25,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/classes', classes.all);
+app.get('/pupils', pupils.all);
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));

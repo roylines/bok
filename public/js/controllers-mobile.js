@@ -1,5 +1,5 @@
-var ClassController = function($scope) {
-  $scope.classes = [
+var PupilsController = function($scope) {
+  $scope.pupils = [
     {name: 'A'},
     {name: 'B'},
     {name: 'C'},

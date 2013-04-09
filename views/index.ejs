@@ -13,11 +13,11 @@
 	<body>
 		<div data-role="page">
 			<div data-role="header">
-				<h1>Bok: Select Class</h1>
+				<h1>Pupils</h1>
 			</div>
 			<div data-role="content">
-				<ul data-role="listview" data-filter="true" data-filter-placeholder="Filter classes..." ng-controller="ClassController">
-					<li ng-repeat="class in classes"><a href="index.html">{{class.name}}</a></li>
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Filter pupils..." ng-controller="PupilsController">
+					<li ng-repeat="pupil in pupils"><a href="index.html">{{pupil.name}}</a></li>
 				</ul>
 				<!-- <a href="lists-ul.html" data-role="button" data-icon="arrow-r" data-iconpos="right">Basic list example</a> -->
 			</div>
