@@ -1,4 +1,5 @@
-var async = require('async'),
+var _ = require('underscore'),
+	async = require('async'),
 	names = require('names');
 
 var pupils = {};
@@ -11,7 +12,9 @@ pupils.all = function(req, res) {
 		--n;
 	}
 
-	res.json(all);
+	res.json(_.sortBy(all, function(pupil) {
+		return pupil.name;
+	}));
 };
 
 module.exports = pupils;
