@@ -1,7 +1,6 @@
 var pupils = require('./routes/pupils'),
 	device = require('express-device'),
 	express = require('express'),
-	routes = require('./routes'),
 	http = require('http'),
 	path = require('path');
 
@@ -24,8 +23,9 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/pupils', pupils.all);
+app.get('/', pupils.ui.all);
+app.get('/pupil/:pupil', pupils.ui.single);
+app.get('/data/pupils', pupils.data.all);
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
