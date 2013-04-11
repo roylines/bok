@@ -1,18 +1,18 @@
 <% include header %>
 		<div data-role="page">
-			<div data-role="header" id="pupils">
+			<div data-role="header" id="pupils" data-theme="b">
+				<a href="#addpupil" data-icon="plus">Add New</a>
 				<h1>Pupils</h1>
-				<a href="#options" data-icon="plus" class="ui-btn-right">Options</a>
+				<a href="#options" data-icon="gear">Options</a>
 			</div>
 			<div data-role="content">
-				<p><a href="#addpupil" data-icon="gear" data-role="button">Add New</a></p>
 				<ul data-role="listview" data-filter="true" data-filter-placeholder="Filter pupils..." ng-controller="PupilsController">
 					<li ng-repeat="pupil in pupils"><a href="/pupil/{{pupil.id}}">{{pupil.name}}</a></li>
 				</ul>
 			</div>
 		</div>
 		<div data-role="page" id="pupil" data-add-back-btn="true">
-			<div data-role="header">
+			<div data-role="header" data-theme="b">
 				<h1>Pupil</h1>
 			</div>
 			<div data-role="content">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div data-role="page" id="addpupil">
-			<div data-role="header">
+			<div data-role="header" data-theme="b">
 				<a href="/" data-icon="delete">Cancel</a>
 				<h1>Add Pupil</h1>
 				<a href="/" data-icon="check" data-theme="b">Save</a>
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div data-role="page" id="options" data-add-back-btn="true">
-			<div data-role="header">
+			<div data-role="header" data-theme="b">
 				<h1>Options</h1>
 			</div>
 			<div data-role="content">
