@@ -13,7 +13,7 @@ var routes = function(app) {
 	app.get('/login', authentication.ui.login );
 	app.post('/login', authentication.data.login );
 	app.get('/pupils', pupils.ui.all);
-	app.get('/pupil/:pupil', pupils.ui.single);
+	app.get('/pupil/:id', pupils.ui.single);
 	app.get('/data/pupils', pupils.data.all);
 };
 

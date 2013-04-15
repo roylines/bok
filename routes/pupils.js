@@ -20,8 +20,17 @@ pupils.ui.all = function(req, res) {
 };
 
 pupils.ui.single = function(req, res) {
-	return res.render('pupil', {
-		title: 'Pupil'
+	data.find(req.params.id, function(e, pupil) {
+		if(e) {
+			console.error(e);
+			return res.send(500);
+		}
+
+		console.log(pupil);
+		return res.render('pupil', {
+			title: 'View Pupil',
+			pupil: pupil
+		});
 	});
 };
 

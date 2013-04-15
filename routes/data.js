@@ -1,3 +1,5 @@
+var _ = require('underscore');
+
 var data = {};
 
 data.pupils = [{
@@ -91,5 +93,17 @@ data.pupils = [{
 	id: 24,
 	name: "Zulema Trees"
 }];
+
+data.find = function(id, done) {
+	var pupil = _.findWhere(data.pupils, {
+		id: parseInt(id, 0)
+	});
+
+	if (pupil) {
+		return done(null, pupil);
+	}
+
+	return done('missing pupil');
+};
 
 module.exports = data;
