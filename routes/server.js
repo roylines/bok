@@ -1,4 +1,5 @@
 var authentication = require('./authentication'),
+	passport = require('passport'),
 	pupils = require('./pupils'),
 	device = require('express-device'),
 	express = require('express'),
@@ -8,13 +9,18 @@ var authentication = require('./authentication'),
 var server = {};
 
 var routes = function(app) {
-	app.get('/', authentication.ui.login);
+	app.get('/', authentication.ensure, pupils.ui.all);
 
-	app.get('/login', authentication.ui.login );
-	app.post('/login', authentication.data.login );
-	app.get('/pupils', pupils.ui.all);
-	app.get('/pupil/:id', pupils.ui.single);
-	app.get('/data/pupils', pupils.data.all);
+	app.get('/pupils', authentication.ensure, pupils.ui.all);
+	app.get('/pupil/:id', authentication.ensure, pupils.ui.single);
+	app.get('/data/pupils', authentication.ensure, pupils.data.all);
+
+	app.get('/login', authentication.ui.login);
+	app.post('/login', authentication.data.login);
+	app.get('/logout', authentication.ui.logout);
+
+	app.get('/auth/google', authentication.google.authenticate, authentication.google.fail);
+	app.get('/auth/google/return', authentication.google.authenticate, authentication.google.fail);
 };
 
 var listen = function(app) {
@@ -25,7 +31,8 @@ var listen = function(app) {
 
 server.initialise = function(app) {
 	console.log('initialising app');
-	// all environments
+	authentication.google.initialise();
+
 	console.log(__dirname + '/../views');
 
 	app.set('port', process.env.PORT || 3000);
@@ -36,8 +43,14 @@ server.initialise = function(app) {
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
-	app.use(device.capture());
+	app.use(express.cookieParser());
+	app.use(express.session({
+		secret: process.env.SESSIONSECRET || 'alakazamseemeflymymagiccarpetthroughthesky'
+	}));
+	app.use(passport.initialize());
+	app.use(passport.session());
 	app.use(app.router);
+	app.use(device.capture());
 
 	// development only
 	if ('development' == app.get('env')) {

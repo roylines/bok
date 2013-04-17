@@ -14,9 +14,7 @@ pupils.data.all = function(req, res) {
 };
 
 pupils.ui.all = function(req, res) {
-	return res.render('pupils', {
-		title: 'Pupils'
-	});
+	return res.render('pupils');
 };
 
 pupils.ui.single = function(req, res) {
@@ -26,9 +24,7 @@ pupils.ui.single = function(req, res) {
 			return res.send(500);
 		}
 
-		console.log(pupil);
 		return res.render('pupil', {
-			title: 'View Pupil',
 			pupil: pupil
 		});
 	});
