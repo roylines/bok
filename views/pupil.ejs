@@ -4,7 +4,29 @@
 				<h1>Pupil</h1>
 			</div>
 			<div data-role="content">
-				<h1><%= pupil.name %></h1>
+				<h1><%= pupil.name %> (12)</h1>
+
+				<table data-role="table" id="app" data-mode="columntoggle" class="ui-responsive table-stroke ui-table ui-table-columntoggle">
+					<thead>
+				    <tr>
+				      <th>AF</th>
+				      <th>L</th>
+				      <th>Rating</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>AF2</td>
+				      <td>L2</td>
+				      <td>***</td>
+				    </tr>
+				    <tr>
+				      <td>AF2</td>
+				      <td>L3</td>
+				      <td>***</td>
+				    </tr>
+				  </tbody>
+				</table>
 			</div>
 		</div>
 <% include footer %>
