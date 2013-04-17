@@ -3,7 +3,7 @@
 			<div data-role="header" id="pupils" data-theme="b">
 				<a href="#addpupil" data-icon="plus">Add New</a>
 				<h1>Pupils (<%= user.displayName %>)</h1>
-				<a href="#options" data-icon="gear">Options</a>
+				<a href="/logout" data-icon="delete" rel="external" data-ajax="false" >Logout</a>
 			</div>
 			<div data-role="content">
 				<ul data-role="listview" data-filter="true" data-filter-placeholder="Filter pupils..." ng-controller="PupilsController">
@@ -27,14 +27,6 @@
 			</div>
 			<div data-role="content">
 				<p>Some pupil data to collect</p>
-			</div>
-		</div>
-		<div data-role="page" id="options" data-add-back-btn="true">
-			<div data-role="header" data-theme="b">
-				<h1>Options</h1>
-			</div>
-			<div data-role="content">
-				<p>Some options</p>
 			</div>
 		</div>
 <% include footer %>
